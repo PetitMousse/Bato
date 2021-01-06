@@ -1,0 +1,30 @@
+def calcul_RS (Co, t, x_f, y_f, x2, y2):
+    
+    direction = float(input("quelle est la direction du vent? : "))
+    vitesse = float(input("quelle est la vitesse du vent? : "))
+    a = int(input("si le vent vient de Babord rentrez 1 si il vient de Tribord rentrez -1"))
+
+    from Trouver_pointB import trouver_pointB
+    from Conversion_lat_x import conversion1
+    # calcul de la derive en fonction du temps de trajet et de la position du bateau
+    t = int(input("temps de trajet"))
+    
+    import math
+    derive = direction
+    force = vitesse
+
+    x_f = force * maths.cos(derive) * t
+    y_f = force * maths.sin(derive) * t
+    x_f = xb + x_f
+    y_f = yb + y_f
+    # calcul des longueurs du triangle
+    L_d = ((x_f - xb) ** 2 + (y_f - yb) ** 2) ** 1 / 2
+    L_i = ((xb - x2) ** 2 + (yb - y2) ** 2) ** 1 / 2
+    L_r = ((x_f - x2) ** 2 + (y_f - y2) ** 2) ** 1 / 2
+    # angle de derive
+    A = (-L_d ** 2 + L_r ** 2 + L_i ** 2) / (2 * L_i * L_r)
+    A = math.radians(A)
+    A = math.acos(A)
+    derive_vent = math.degrees(A) * a
+    
+    return (derive_vent)
