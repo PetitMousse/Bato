@@ -1,0 +1,94 @@
+
+
+
+#// ---------------- DEBUT EN TETE -------------------------------------//
+
+
+// NOM : tableau des valeurs du courant.                                //
+
+
+// ALGO - REFERENCES :                                                  //
+
+
+//                                                                      //
+
+
+// AUTEURS : T. Bonnel                                                  //
+
+
+// VERSION :    1.0         P.SCHOTT              décembre 2020         //
+
+
+//                  Création en Scilab d'après le programme de mélanges //
+
+
+// HISTORIQUE : Aucun                                                   //
+
+
+//                                                                      //
+
+
+// ENTREES :  valeurs direction et vitesse du vent en fonction     
+
+
+//           du temps                                                   //
+
+
+//                                                                      //
+
+
+// SORTIES :  angle de dérive du bateau                                                         //
+
+
+//                                                                      //
+
+
+// MODIFIEES :                                                          //
+
+
+//                                                                      //
+
+
+// LOCALES :                                                            //
+
+
+//                                                                      //
+
+
+// FONCTIONS APPELEES :   dérive                                         //
+
+
+//                                                                      //
+
+
+
+
+#rentrer la valeur de direction et de vitesse du vent et le temps
+
+direction = []
+vitesse = []
+t_0 = []
+#calcul de la derive en fonction du temps de trajet et de la position du bateau
+
+
+import math
+def dérive (derive) :
+
+   d = direction2[t_0]
+   derive = (d/t)
+
+   v = vitesse2[t_0]
+   force = (v/t)
+
+   x_f = force * maths.cos(derive)
+   y_f = force * maths.sin(derive)
+   #calcul des longueurs du triangle
+   L_d = ((x_f - x_ideal) * 2 + (y_f - y_ideal) * 2) ** 1 / 2
+   L_i = (postion_initiale * 2 + position_ideal * 2) ** 1 / 2
+   L_r = (postion_initiale * 2 + position_reelle * 2) ** 1 / 2
+   #angle de derive
+   D= (-L_d**2+L_r**2+L_i**2) / (2 * L_i * L_r)
+   D= math.radians(A)
+   D= math.acos(A)
+   Dderive = math.degrees(D)
+return derive
