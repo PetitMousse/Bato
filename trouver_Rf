@@ -33,7 +33,7 @@ def trouver_rf(Cc, Dev_mag, Dev_magN, vent, cour):
     Cvrai = Cc + Dev_magN + Dev_mag
 
     if vent != 0:
-        Rs = Cvrai + derive
+        Rs = Cvrai + derive_vent
     else:
         Rs = Cvrai
 
