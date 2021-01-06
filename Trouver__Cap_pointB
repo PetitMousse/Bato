@@ -1,3 +1,25 @@
+#// ---------------- DEBUT EN TETE -------------------------------------//
+// NOM : trouver un cap pour un point B en fonction de paramètre        //
+// ALGO - REFERENCES :                                                  //
+//                                                                      //
+// AUTEURS : Q.forest                                                   //
+// VERSION :    1.0         P.SCHOTT              novembre 2020         // 
+//                 						                             	//
+// HISTORIQUE : Aucun                                                   //
+//                                                                      //
+// ENTREES :  long/lat initiale et finale // Vitesse	                //
+//                                                                      //
+// SORTIES : Cap, temps de parcours	                                    //
+//                                                                      //
+// MODIFIEES :                                                          //
+//                                                                      //
+// LOCALES :                                                            //
+//                                                                      //
+// FONCTIONS APPELEES : Proj, transform                                 //
+//                                                                      //   
+// ---------------- FIN EN TETE ----------------------------------------//
+'''
+
 def trouver_pointB (lat, long, v, Cap, t):
 
     lat = input("quelle est votre lattitude actuelle ?")
