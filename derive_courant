@@ -10,7 +10,7 @@
 //                                                                      //
 // ENTREES :  heure de la marée; coefficient marée; temps de trajet;    //
 //            position initiale(x,y); position finale souhaitée(x,y)    //
-//                                                                      //
+//            tableau des valeurs de direction et vitesse du courant    //
 // SORTIES : angle de dérivation induit par le courant                  //
 //                                                                      //
 // MODIFIEES :                                                          //
@@ -21,6 +21,8 @@
 //                                                                      //
 // ---------------- FIN EN TETE ----------------------------------------//
 '''
+
+# IL faut absolument prendre pour se code les valeurs des listes direction [] et vitesse []
 def calcul_RF (h_m, Co, t, t_0, x_f, y_f, x2, y2):
     # rentrer les differentes valeurs de direction et de vitesse du courants en fonction de la position
     # EN VIVES EAUX
