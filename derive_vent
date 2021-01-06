@@ -1,4 +1,28 @@
-def calcul_RS (Co, t, x_f, y_f, x2, y2):
+'''
+#// ---------------- DEBUT EN TETE -------------------------------------//
+// NOM : tableau des valeurs du courant.                                //
+// ALGO - REFERENCES :                                                  //
+//                                                                      //
+// AUTEURS : A.Bidault & T.Bonnel                                       //
+// VERSION :    1.0         P.SCHOTT              décembre 2020         // 
+//                                                                      //
+// HISTORIQUE : Aucun                                                   //
+//                                                                      //
+// ENTREES :    temps de trajet; position finale souhaitée(x,y          //
+//            position initiale(x,y)                                    //
+//                                                                      //
+// SORTIES : angle de dérivation induit par le vent.                    //
+//                                                                      //
+// MODIFIEES :                                                          //
+//                                                                      //
+// LOCALES :                                                            //
+//                                                                      //
+// FONCTIONS APPELEES :Trouver_pointB; Conversion_lat_x                 //
+//                                                                      //
+// ---------------- FIN EN TETE ----------------------------------------//
+'''
+
+def calcul_RS (t, x_f, y_f, x2, y2):
     
     direction = float(input("quelle est la direction du vent? : "))
     vitesse = float(input("quelle est la vitesse du vent? : "))
