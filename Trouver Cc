@@ -1,3 +1,24 @@
+#// ---------------- DEBUT EN TETE -------------------------------------//
+// NOM : Trouver cap_CC                                                 //
+// ALGO - REFERENCES :                                                  //
+//                                                                      //
+// AUTEURS : Q.forest                                                   //
+// VERSION :    1.0         P.SCHOTT              novembre 2020         // 
+//                                                                      //
+// HISTORIQUE : Aucun                                                   //
+//                                                                      //
+// ENTREES :Route de fond / Vent / courant / dev magn / nord magn       //
+//                                                                      //
+// SORTIES : Cap compas                                                 //
+//                                                                      //
+// MODIFIEES :                                                          //
+//                                                                      //
+// LOCALES :                                                            //
+//                                                                      //
+// FONCTIONS APPELEES : None (uniquement soustraction                   //
+//                                                                      //
+// ---------------- FIN EN TETE ----------------------------------------//
+'''
 Rf = input("Quelle est votre route de fond ?")
 vent = input("Quelle est la valeur de la fore du vent ?")
 cour = input("Quelle est la valeur de la fore du courant ?")
