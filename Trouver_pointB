@@ -5,12 +5,12 @@
 //                                                                      //
 // AUTEURS : Q.delaforesdivonne                                         //
 // VERSION :    1.0         P.SCHOTT              novembre 2020         // 
-//                  Création en Scilab d'après le programme de mélanges //
+//                                                                      //
 // HISTORIQUE : Aucun                                                   //
 //                                                                      //
-// ENTREES : Position, Vitesse, Cap                                           //
+// ENTREES : Position, Vitesse, Cap                                     //
 //                                                                      //
-// SORTIES : Hauteur de l'eau exacte                                    //
+// SORTIES : Long / Lat finale                                          //
 //                                                                      //
 // MODIFIEES :                                                          //
 //                                                                      //
