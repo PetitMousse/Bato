@@ -1,3 +1,26 @@
+
+#// ---------------- DEBUT EN TETE -------------------------------------//
+// NOM : Conversion lat/long en cartesien                               //
+// ALGO - REFERENCES :                                                  //
+//                                                                      //
+// AUTEURS : Q.forest                                                   //
+// VERSION :    1.0         P.SCHOTT              novembre 2020         // 
+//                                                                      //
+// HISTORIQUE : Aucun                                                   //
+//                                                                      //
+// ENTREES :  Cap compas / dev magnetique / dev nord magnetique /       //
+// vent / courant                                                       //
+//                                                                      //
+// SORTIES : Position en valeurs cartesiennes                           //
+//                                                                      //
+// MODIFIEES :                                                          //
+//                                                                      //
+// LOCALES :                                                            //
+//                                                                      //
+// FONCTIONS APPELEES : Proj, transform                                 //
+//                                                                      //
+// ---------------- FIN EN TETE ----------------------------------------//
+'''
 Cc = input("Quelle est la position indiquee par votre boussole ?")
 Dev_mag = input("Quelle est la deviation magnetique de votre bousolle ?")
 Dev_magN = input("De combien est l'ecart avec le norde magnetique a votre position ?")
