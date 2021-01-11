@@ -54,14 +54,12 @@ f = interpolate.interp1d(x, y, kind='cubic')  # cubic => interpolation par polyn
 xnew = np.arange(0, 12, 0.1)
 ynew = f(xnew)   # utilisation de l'interpolation fonction returned by `interp1d`
 plt.plot(x, y, 'o', xnew, ynew, '-')
+plt.xlabel('temps (heure)')
+plt.ylabel('hauteur de l eau (m)')
 plt.show()
 
 V = float(input("quel temps exacte de la marée (en heure)voulez vous? "))  # on choisit ici la valeur a sortir de la fonction d'interpolation 
-print("voici la hauteur d'eau dû a la marée actuelle", f(V))
 
 H_f = zero_hydrographique + f(V)
 
-print("*\n"*5)
-print ('\033[47m' + '\033[31m' + "la hauteur d'eau sera de", H_f,"metres à", V,"heure de marée")
-print('\033[0m')
-print("*\n"*5)
+print("La hauteur d'eau sera de {} metres a {} heure de marree".format(H_f, V))
