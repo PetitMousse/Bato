@@ -25,7 +25,7 @@ def trouver_pointB (lat, long, v, Cap, t):
     lat = input("quelle est votre lattitude actuelle ?")
     long = input("quelle est votre longitude actuelle ?")
     long1 = input("Longitude de votre destination ")
-    lat2 = input ("Lattitude de votre destination ")
+    lat1 = input ("Lattitude de votre destination ")
     v = input("quelle est votre vitesse moyenne ?")
 
     from math import *
@@ -38,10 +38,7 @@ def trouver_pointB (lat, long, v, Cap, t):
     xf1, yf1 = long1, lat1
     xf, yf = transform(inProj, outProj, xf1, yf1)
 
-    Cap = radian(atan((xf-x2)/(yf-y2)))
+    Cap = radians(atan((xf-x2)/(yf-y2)))
     tf = (xf-x2)/sin(Cap)
-
-
-    print ("e cap à tennir est :",Cap,"°")
-    print ("La durée de parcours est de :",tf,"min")
+    
     return tf, Cap
