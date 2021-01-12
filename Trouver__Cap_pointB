@@ -39,7 +39,7 @@ def trouver_pointB (lat, long, v, Cap, t):
     xf, yf = transform(inProj, outProj, xf1, yf1)
  
     Cap = radians(atan((xf-x2)/(yf-y2)))
-    tf = (xf-x2)/sin(Cap)
+    tf = (xf-x2)/sin(Cap)*1000
       
     plt.plot([long, long1], [lat, lat1],  marker="*")
     plt.xlabel('Longitude')
