@@ -29,11 +29,17 @@
 
 
     from pyproj import Proj, transform
+    import math
 
+    # On passe dans l'autre en (x,y)
+    # Les points
     inProj = Proj(init='epsg:3857')
     outProj = Proj(init='epsg:4326')
     x1, y1 = long, lat
     x2, y2 = transform(inProj, outProj, x1, y1)
+    # La vitesse
+    v = v1/5543.7
+
 
     Cap1 = math.radians(Cap)
     xb = math.sin(Cap1)*v*t + x2
@@ -45,9 +51,11 @@
     if 0.0001>yb>e-20:
         yb = 0
 
-    outProj = Proj(init='epsg:4326')
+    outProj= Proj(init='epsg:3857')
+    inProj = Proj(init='epsg:4326')
     x3, y3 = xb, yb
     longf, latf = transform(inProj, outProj, x3, y3)
+    
     print "longitude du point B =", longf
     print "lattitude du point B =", latf
     return longf, latf
