@@ -1,0 +1,38 @@
+from math import *
+latitude_1 = input("votre latitude initiale")
+longitude_1 = input("Votre longitude initiale")
+distance = input("la distance de parcours en Km ?")
+cap_compas = input("Quelle est votre cap compas (+ si dans le sens des aiguilles d'une montre) ?")
+
+# variable en float
+lat_1_d = float(latitude_1)
+long_1_d = float(longitude_1)
+d = float(distance)
+A_d = float(cap_compas)
+
+# conversion en radian
+A = radians(A_d)
+long_1 = radians(long_1_d)
+lat_1 = radians(lat_1_d)
+
+#Valeur du rayon de la terre
+R = 6371
+
+#Boucle pour que cos et sin de A prennent bien la valeur de 0 pour les multiples de pi
+C = cos(A)
+S = sin(A)
+if cos(A) - 0.0000001 < 0:
+    C = 0
+if sin(A) - 0.0000001 < 0:
+    S = 0
+
+#Calcule des coordonnées
+lat_2 = asin(sin(lat_1)*cos(d/R) + cos(lat_1)*sin(d/R)*C)
+long_2 = long_1 + atan2(S*sin(d/R)*cos(lat_1), cos(d/R)-sin(lat_1)*sin(lat_2))
+
+#On repasse en degrés pour els coordonnées
+lat_2 = degrees(lat_2)
+long_2 = degrees(long_2)
+
+print("latitude du point B =", lat_2)
+print("longitude du point B =", long_2)
