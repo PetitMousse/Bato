@@ -23,62 +23,45 @@
 '''
 
 # IL faut absolument prendre pour se code les valeurs des listes direction [] et vitesse []
-def calcul_RF (h_m, Co, t, t_0, x_f, y_f, x2, y2):
+import math
+
+def derive_courant(temps_trajet, babord, heure_maree, init, finale_souhaitee, direction, vitesse):  # x2 y2 = initiale
     # rentrer les differentes valeurs de direction et de vitesse du courants en fonction de la position
     # EN VIVES EAUX
-    direction = []
-    vitesse = []
-    a = int(input("si le courant vient de Babord rentrez 1 si il vient de Tribord rentrez -1"))
 
-    from Trouver_pointB import trouver_pointB
-    from Conversion_lat_x import conversion1
+    x2 = init[0]
+    y2 = init[1]
+
+    xb = finale_souhaitee[0]
+    yb = finale_souhaitee[1]
+
+    a = 1 if babord else -1
+
     # calcul de la derive en fonction du temps de trajet et de la position du bateau
-    t = int(input("temps de trajet"))
-    t_0 = int(input("heure marree (O a 12 avec h=6=pleine mer)"))
-    import math
-    if Co > 70:
-        d = direction[t_0:t_0 + t:]
-        a = sum(d)
-        derive = (a / t)
-
-        v = vitesse[t_0:t_0 + t:]
-        b = sum(v)
-        force = (b / t)
-
-        x_f = force * maths.cos(derive) * t
-        y_f = force * maths.sin(derive) * t
-        x_f = xb + x_f
-        y_f = yb + y_f
-        # calcul des longueurs du triangle
-        L_d = ((x_f - xb) ** 2 + (y_f - yb) ** 2) ** 1 / 2
-        L_i = ((xb - x2) ** 2 + (yb - y2) ** 2) ** 1 / 2
-        L_r = ((x_f - x2) ** 2 + (y_f - y2) ** 2) ** 1 / 2
-        # angle de derive
-        A = (-L_d ** 2 + L_r ** 2 + L_i ** 2) / (2 * L_i * L_r)
-        A = math.radians(A)
-        A = math.acos(A)
-        A_derive = math.degrees(A) * a
+    t = math.ceil(temps_trajet)
+    t_0 = math.floor(heure_maree)
 
 
-    else:
-        d = direction2[t_0:t_0 + t:]
-        a = sum(d)
-        derive = (a / t)
+    d = direction[t_0:t_0 + t:]
+    a = sum(d)
+    derive = (a / t)
 
-        v = vitesse2[t_0:t_0 + t:]
-        b = sum(v)
-        force = (b / t)
+    v = vitesse[t_0:t_0 + t:]
+    b = sum(v)
+    force = (b / t)
 
-        x_f = force * maths.cos(derive) * t
-        y_f = force * maths.sin(derive) * t
-        # calcul des longueurs du triangle
-        L_d = ((x_f - xb) ** 2 + (y_f - yb) ** 2) ** 1 / 2
-        L_i = ((xb - x2) ** 2 + (yb - y2) ** 2) ** 1 / 2
-        L_r = ((x_f - x2) ** 2 + (y_f - y2) ** 2) ** 1 / 2
-        # angle de derive
-        A = (-L_d ** 2 + L_r ** 2 + L_i ** 2) / (2 * L_i * L_r)
-        A = math.radians(A)
-        A = math.acos(A)
-        A_derive = math.degrees(A) * a 
+    x_f = force * math.cos(derive) * t
+    y_f = force * math.sin(derive) * t
+    x_f = xb + x_f
+    y_f = yb + y_f
+    # calcul des longueurs du triangle
+    L_d = ((x_f - xb) ** 2 + (y_f - yb) ** 2) ** 1 / 2
+    L_i = ((xb - x2) ** 2 + (yb - y2) ** 2) ** 1 / 2
+    L_r = ((x_f - x2) ** 2 + (y_f - y2) ** 2) ** 1 / 2
+    # angle de derive
+    A = (-L_d ** 2 + L_r ** 2 + L_i ** 2) / (2 * L_i * L_r)
+    A = math.radians(A)
+    A = math.acos(A)
+    A_derive = math.degrees(A) * a
 
-    return (A_derive)
+    return A_derive
