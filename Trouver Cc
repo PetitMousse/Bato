@@ -16,7 +16,7 @@
 // LOCALES :                                                            //
 //                                                                      //
 // FONCTIONS APPELEES : None (uniquement soustraction                   //
-//                                                                      //
+//                                                                      //2
 // ---------------- FIN EN TETE ----------------------------------------//
 '''
 Rf = input("Quelle est votre route de fond ?")
