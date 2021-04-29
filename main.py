@@ -94,7 +94,7 @@ elif result is "trouver_destination":
     gauche = diff_x < 0
     haut = diff_y > 0
 
-    cap = math.acos(abs(diff_x) / hypo)
+    cap = math.acos(abs(diff_x) / abs(hypo))
 
     if gauche and haut:
         cap += 270
