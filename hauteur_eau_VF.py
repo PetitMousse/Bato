@@ -16,33 +16,33 @@ def Hauteur_eau(h_m, b_m, t_debut, t_debut2, t_fin, t_fin2, t_heure, t_min):
     # cas pour une marrée montante
 
     if t in A:
-        t0 = t/60 - t_minute
-        hauteur_t = 1 * marnage * t
+        t0 = t/60 - t_heure
+        hauteur_t = b_m + 1 * marnage * t0
         print("La hauteur de l'eau pour cette heure est de 1:", hauteur_t)
 
     elif t in B:
         t1 = t/60 - t_heure
-        hauteur_t = 1 * marnage + 2 * marnage * t1
+        hauteur_t = b_m + 1 * marnage + 2 * marnage * t1
         print("La hauteur de l'eau pour cette heure est de 2:", hauteur_t)
 
     elif t in C:
         t2 = t/60 - t_heure
-        hauteur_t = 3 * marnage + 3 * marnage * t2
+        hauteur_t = b_m + 3 * marnage + 3 * marnage * t2
         print("La hauteur de l'eau pour cette heure est de 3:", hauteur_t)
 
     elif t in D:
         t3 = t/60 - t_heure
-        hauteur_t = 6 * marnage + (3 * marnage * t3)
+        hauteur_t = b_m + 6 * marnage + (3 * marnage * t3)
         print("La hauteur de l'eau pour cette heure est de 4:", hauteur_t)
 
     elif t in E:
         t4 = t/60 - t_heure
-        hauteur_t = 9 * marnage + (2 * marnage * t4)
+        hauteur_t = b_m + 9 * marnage + (2 * marnage * t4)
         print("La hauteur de l'eau pour cette heure est de 5:", hauteur_t)
 
     elif t in F:
         t5 = t/60 - t_heure
-        hauteur_t = 11 * marnage + (1 * marnage * t5)
+        hauteur_t = b_m + 11 * marnage + (1 * marnage * t5)
         print("La hauteur de l'eau pour cette heure est de 6:", hauteur_t)
 
     # cas pour une marree descendante
