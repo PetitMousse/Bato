@@ -8,6 +8,8 @@ from tableau_du_courant import tableau_courant
 from derive_courant import derive_courant
 from derive_vent import derive_vent
 import math
+import utm
+
 
 def custom_input(title):
     return input_dialog(
@@ -26,19 +28,50 @@ result = radiolist_dialog(
 ).run()
 
 if result is "hauteur_eau":
-    # print("Hauteur d'eau (m): "+Hauteur_eau(
-    #     float(custom_input("Hauteur de la marée haute (m)")),
-    #     float(custom_input("Hauteur de la basse mer (m)")),
-    #     ...[float(x) for x in custom_input("Moment de début de la montée (HH:mm)").split(":")],
-    #     float(custom_input("Moment de la fin de la montée (HH:mm)")),
-    #     float(custom_input("------------------------------------\nMoment souhaité (HH:mm)")),
-    # ))
-    print("Not implemented")
+    message_dialog(
+        title='Bateau',
+        text="Hauteur d'eau (m): "+str(Hauteur_eau(
+            h_m=float(custom_input("Hauteur de la marée haute (m)")),
+            b_m=float(custom_input("Hauteur de la basse mer (m)")),
+            t_debut=[int(x) for x in custom_input(
+                "Moment de début de la montée (HH:mm)").split(":")],
+            t_fin=[int(x) for x in custom_input(
+                "Moment de la fin de la montée (HH:mm)").split(":")],
+            t_souhaitee=[int(x) for x in custom_input(
+                "Moment souhaité (HH:mm)").split(":")],
+        ))
+    ).run()
 elif result is "trouver_destination":
-    init = [float(custom_input("Position initiale (x) en km")),
-            float(custom_input("Position initiale (y) en km"))]
-    finale = [float(custom_input("Position finale (x) en km")),
-              float(custom_input("Position finale (y) en km"))]
+    radio_resp = radiolist_dialog(
+        title="Bateau",
+        text="Comment rentrer la position initiale ?",
+        values=[
+            ("cart", "Carthésien (x, y)"),
+            ("pol", "Polaire (lat, long)"),
+        ]
+    ).run()
+    if radio_resp == "cart":
+        init = [float(custom_input("Position initiale (x) en km")),
+                float(custom_input("Position initiale (y) en km"))]
+    else:
+        init = utm.from_latlon(float(custom_input("Position initiale (lat) en deg")),
+                               float(custom_input("Position initiale (long) en deg")))
+        print(init)
+
+    radio_resp = radiolist_dialog(
+        title="Bateau",
+        text="Comment rentrer la position initiale ?",
+        values=[
+            ("cart", "Carthésien (x, y)"),
+            ("pol", "Polaire (lat, long)"),
+        ]
+    ).run()
+    if radio_resp == "cart":
+        finale = [float(custom_input("Position finale (x) en km")),
+                  float(custom_input("Position finale (y) en km"))]
+    else:
+        finale = utm.from_latlon(float(custom_input("Position finale (lat) en deg")),
+                                 float(custom_input("Position finale (long) en deg")))
 
     vitesse = float(custom_input("Vitesse moyen du bateau (km/h)"))
 

@@ -1,4 +1,9 @@
-def Hauteur_eau(h_m, b_m, t_debut, t_debut2, t_fin, t_fin2, t_heure, t_min):
+def Hauteur_eau(h_m, b_m, t_debut, t_fin, t_souhaitee):
+    t_heure, t_min = t_souhaitee if len(t_souhaitee) == 2 else [t_souhaitee[0], 0]
+    t_debut, t_debut2 = t_debut if len(t_debut) == 2 else [t_debut[0], 0]
+    t_fin, t_fin2 = t_fin if len(t_fin) == 2 else [t_fin[0], 0]
+
+    print(t_fin2)
 
     t_marree = (t_fin - t_debut) * 60 + (t_fin2 - t_debut2)
     t_marree_marnage = round(t_marree / 6)
@@ -52,4 +57,4 @@ def Hauteur_eau(h_m, b_m, t_debut, t_debut2, t_fin, t_fin2, t_heure, t_min):
         hauteur_t = - (t6 * (h_m-b_m))/6 + h_m
         print("La hauteur de l'eau pour cette heure est de 7:", hauteur_t)
 
-    return Hauteur_eau()
+    return hauteur_t
