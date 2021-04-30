@@ -11,4 +11,4 @@ R = 6371
 x = (R*pi*long*45)/180
 y = R*math.sqrt(2)*math.sin(lat)
 
-print (x, y)
+print ("x : ", x,"y : ", y)

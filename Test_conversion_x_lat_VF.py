@@ -14,5 +14,5 @@ long = (x*180)/(R*pi*45)
 calcul = y/(R*math.sqrt(2))
 lat = math.asin(calcul)
 
-print(lat)
-print(long)
+print("latitude : ", lat)
+print("longitude : ",long)
