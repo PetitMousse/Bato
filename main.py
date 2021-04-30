@@ -5,10 +5,11 @@ from prompt_toolkit.shortcuts import message_dialog
 from hauteur_eau_VF import Hauteur_eau
 from trouver_point_b import trouver_pointB
 from tableau_du_courant import tableau_courant
-from derive_courant import derive_courant
 from derive_vent import derive_vent
 import math
 import utm
+
+from derive_courant_VF import derive_courant
 
 
 def custom_input(title):
@@ -16,6 +17,7 @@ def custom_input(title):
         title='Bateau',
         text=title
     ).run()
+
 
 result = radiolist_dialog(
     title="Que voulez-vous faire ?",
@@ -79,31 +81,14 @@ elif result is "trouver_destination":
         (init[0]-finale[0]) ** 2 + (init[1]-finale[1]) ** 2)
     temps_h = distance_trajet / vitesse
 
-    directions_vitesses = tableau_courant()
+    #Derive du courant
 
-    while True:
-        heure_maree = float(custom_input("Heure de la marée (HH)"))
+    derive_du_courant_vitesse = float(custom_input("Vitesse du courant (noeuds)")) * 1.852  # km/h
+    direction_du_courant = float(custom_input("Direction du courant (deg)"))
 
-        if heure_maree > 12:
-            print("Mauvaise heure")
-        else:
-            break
+    derive_du_courant = derive_courant(derive_du_courant_vitesse, direction_du_courant, finale, init)
 
-    coef_maree = float(custom_input("Coefficient de la marée"))
-
-    while True:
-        babord = custom_input("Le courant va-t-il vers babord ? (O/N)").lower()
-        if babord == "o" or babord == "n":
-            babord = babord == "o"
-            break
-        else:
-            print("Mauvaise réponse, merci de répondre O ou N")
-
-    vitesse = directions_vitesses[2 if coef_maree > 70 else 3]
-    direction = directions_vitesses[0 if coef_maree > 70 else 1]
-
-    derive_du_courant = derive_courant(
-        temps_h, babord, heure_maree, init, finale, direction, vitesse)
+    #Fin derive du courant
 
     vitesse_vent = float(custom_input("Vitesse du vent (km/h)"))
     direction_vent = float(custom_input("Direction du vent (deg)"))
