@@ -48,7 +48,8 @@ def Hauteur_eau(h_m, b_m, t_debut, t_debut2, t_fin, t_fin2, t_heure, t_min):
     # cas pour une marree descendante
 
     else:
-        hauteur_t = 6/(b_m - h_m) + h_m
+        t6 = (t - t_fin*60 + t_fin2)/60
+        hauteur_t = - (t6 * (h_m-b_m))/6 + h_m
         print("La hauteur de l'eau pour cette heure est de 7:", hauteur_t)
 
     return Hauteur_eau()

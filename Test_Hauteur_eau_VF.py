@@ -56,5 +56,5 @@ elif t in F:
 
 else:
     t6 = (t - t_fin*60 + t_fin2)/60
-    hauteur_t = (6*t6)/(b_m - h_m) + h_m
+    hauteur_t = - (t6 * (h_m-b_m))/6 + h_m
     print("La hauteur de l'eau pour cette heure est de 7:", hauteur_t)
