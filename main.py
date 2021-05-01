@@ -4,7 +4,6 @@ from prompt_toolkit.shortcuts import input_dialog
 from prompt_toolkit.shortcuts import message_dialog
 from hauteur_eau_VF import Hauteur_eau
 from trouver_point_b import trouver_pointB
-from tableau_du_courant import tableau_courant
 from derive_vent import derive_vent
 import math
 import utm
@@ -93,14 +92,6 @@ elif result is "trouver_destination":
     vitesse_vent = float(custom_input("Vitesse du vent (km/h)"))
     direction_vent = float(custom_input("Direction du vent (deg)"))
 
-    while True:
-        babord = custom_input("Le vent va-t-il vers babord ? (O/N)").lower()
-        if babord == "o" or babord == "n":
-            babord = babord == "o"
-            break
-        else:
-            print("Mauvaise réponse, merci de répondre O ou N")
-
     derive_du_vent = derive_vent(
         temps_h, init, finale, vitesse_vent, direction_vent, babord)
 
@@ -112,7 +103,7 @@ elif result is "trouver_destination":
     gauche = diff_x < 0
     haut = diff_y > 0
 
-    cap = math.acos(abs(diff_x) / abs(hypo))
+    cap = math.degrees(math.acos(abs(diff_x) / abs(hypo)))
 
     if gauche and haut:
         cap += 270
