@@ -29,7 +29,7 @@ def derive_courant(derive_du_courant_vitesse, direction_du_courant, finale, init
     if gauche and not haut : 
         resultat = - result
     elif not gauche and haut : 
-        resulat = - result 
+        resultat = - result 
     else :
         resultat = result
 

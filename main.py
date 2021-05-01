@@ -74,7 +74,7 @@ elif result is "trouver_destination":
         finale = utm.from_latlon(float(custom_input("Position finale (lat) en deg")),
                                  float(custom_input("Position finale (long) en deg")))
 
-    vitesse = float(custom_input("Vitesse moyen du bateau (km/h)"))
+    vitesse = float(custom_input("Vitesse moyenne du bateau (km/h)"))
 
     distance_trajet = math.sqrt(
         (init[0]-finale[0]) ** 2 + (init[1]-finale[1]) ** 2)
@@ -124,7 +124,7 @@ elif result is "trouver_destination":
 
     message_dialog(
         title='Bateau',
-        text="Le cap a prendre est: "+str(somme_derives_cap % 360)
+        text="Le cap a prendre est : "+str(somme_derives_cap % 360)
     ).run()
 
 print(result)
