@@ -35,7 +35,7 @@ result = cap - cap_avec_courant
 if gauche and not haut : 
     resultat = -result
 elif not gauche and haut : 
-    resulat = - result 
+    resultat = - result 
 else :
    resultat = result
 
