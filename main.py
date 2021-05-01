@@ -89,11 +89,12 @@ elif result is "trouver_destination":
 
     #Fin derive du courant
 
-    vitesse_vent = float(custom_input("Vitesse du vent (km/h)"))
-    direction_vent = float(custom_input("Direction du vent (deg)"))
+    derive_du_vent_vitesse = float(custom_input("Vitesse du vent (noeuds)")) * 1.852  # km/h
+    direction_du_vent = float(custom_input("Direction du vent (deg)"))
 
-    derive_du_vent = derive_vent(
-        temps_h, init, finale, vitesse_vent, direction_vent, babord)
+
+    derive_du_vent = derive_vent(derive_du_vent_vitesse, direction_du_vent, finale, init)
+
 
     # calcul_cap
     diff_x = finale[0] - init[0]

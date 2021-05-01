@@ -21,40 +21,41 @@
 //                                                                      //
 // ---------------- FIN EN TETE ----------------------------------------//
 '''
-def derive_vent (derive_du_vent_vitesse, direction_du_vent, finale, init):
+import math
 
-    finale_vent = [
-        finale[0] - math.sin(math.radians(derive_du_vent_vitesse)) * derivee_du_vent * temps_h,
-        finale[1] - math.cos(math.radians(derive_du_vent_vitesse)) * derivee_du_vent * temps_h,
-    ]
+def derive_vent (temps_trajet, init, finale_souhaitee, vitesse_vent, direction_vent, babord):
+
+    x2 = init[0]
+    y2 = init[1]
     
-    distance_trajet = math.sqrt((init[0]-finale[0]) ** 2 + (init[1]-finale[1]) ** 2)
+    xb = finale_souhaitee[0]
+    yb = finale_souhaitee[1]
 
-    # calcul_cap
-    diff_x = finale[0] - init[0]
-    diff_y = finale[1] - init[1]
-    hypo = distance_trajet
+    t = temps_trajet
+    
+    direction = direction_vent
+    vitesse = vitesse_vent
 
-    gauche = diff_x < 0
-    haut = diff_y > 0
+    a = 1 if babord else -1
 
-    cap = math.degrees(math.acos(abs(diff_x) / abs(hypo)))
+    # calcul de la derive en fonction du temps de trajet et de la position du bateau
+    t = temps_trajet
+    
+    derive = direction
+    force = vitesse
 
-    finale_vent = [
-        x1 + math.sin(math.radians(derivee_du_vent)) * derive_du_vent_vitesse * temps_h,
-        y1 + math.cos(math.radians(derivee_du_vent)) * derive_du_vent_vitesse * temps_h,
-    ]
-
-    # calcul cap avec vent 
-    cap_avec_vent = math.degrees(math.atan(abs(finale_vent[1] - init[1])/abs(finale_vent[0] - init[0])))
-
-    result = cap - cap_avec_vent
-
-    if gauche and not haut : 
-        resultat = - result
-    elif not gauche and haut : 
-        resultat = - result 
-    else :
-        resultat = result
-        
-    return resultat
+    x_f = force * math.cos(derive) * t
+    y_f = force * math.sin(derive) * t
+    x_f = xb + x_f
+    y_f = yb + y_f
+    # calcul des longueurs du triangle
+    L_d = ((x_f - xb) ** 2 + (y_f - yb) ** 2) ** 1 / 2
+    L_i = ((xb - x2) ** 2 + (yb - y2) ** 2) ** 1 / 2
+    L_r = ((x_f - x2) ** 2 + (y_f - y2) ** 2) ** 1 / 2
+    # angle de derive
+    A = (-L_d ** 2 + L_r ** 2 + L_i ** 2) / (2 * L_i * L_r)
+    A = math.radians(A)
+    A = math.acos(A)
+    derive_vent = math.degrees(A) * a
+    
+    return derive_vent
