@@ -1,2 +1,5 @@
 prompt_toolkit
 utm
+
+# pour telecharger les modules, ecrire la commande suivante
+# python3 -m pip install -r requirements.txt
