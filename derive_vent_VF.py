@@ -21,11 +21,14 @@
 //                                                                      //
 // ---------------- FIN EN TETE ----------------------------------------//
 '''
-def derive_vent (derive_du_vent_vitesse, direction_du_vent, finale, init):
+
+import math
+
+def derive_vent (derive_du_vent_vitesse, direction_du_vent, finale, init, temps_h):
 
     finale_vent = [
-        finale[0] - math.sin(math.radians(derive_du_vent_vitesse)) * derivee_du_vent * temps_h,
-        finale[1] - math.cos(math.radians(derive_du_vent_vitesse)) * derivee_du_vent * temps_h,
+        finale[0] - math.sin(math.radians(direction_du_vent)) * derive_du_vent_vitesse * temps_h,
+        finale[1] - math.cos(math.radians(direction_du_vent)) * derive_du_vent_vitesse * temps_h,
     ]
     
     distance_trajet = math.sqrt((init[0]-finale[0]) ** 2 + (init[1]-finale[1]) ** 2)
@@ -40,10 +43,6 @@ def derive_vent (derive_du_vent_vitesse, direction_du_vent, finale, init):
 
     cap = math.degrees(math.acos(abs(diff_x) / abs(hypo)))
 
-    finale_vent = [
-        x1 + math.sin(math.radians(derivee_du_vent)) * derive_du_vent_vitesse * temps_h,
-        y1 + math.cos(math.radians(derivee_du_vent)) * derive_du_vent_vitesse * temps_h,
-    ]
 
     # calcul cap avec vent 
     cap_avec_vent = math.degrees(math.atan(abs(finale_vent[1] - init[1])/abs(finale_vent[0] - init[0])))

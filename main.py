@@ -61,7 +61,7 @@ elif result is "trouver_destination":
 
     radio_resp = radiolist_dialog(
         title="Bateau",
-        text="Comment rentrer la position initiale ?",
+        text="Comment rentrer la position finale ?",
         values=[
             ("cart", "Carthésien (x, y)"),
             ("pol", "Polaire (lat, long)"),
@@ -85,7 +85,7 @@ elif result is "trouver_destination":
     derive_du_courant_vitesse = float(custom_input("Vitesse du courant (noeuds)")) * 1.852  # km/h
     direction_du_courant = float(custom_input("Direction du courant (deg)"))
 
-    derive_du_courant = derive_courant(derive_du_courant_vitesse, direction_du_courant, finale, init)
+    derive_du_courant = derive_courant(derive_du_courant_vitesse, direction_du_courant, finale, init, temps_h)
 
     #Fin derive du courant
 
@@ -93,7 +93,7 @@ elif result is "trouver_destination":
     direction_du_vent = float(custom_input("Direction du vent (deg)"))
 
 
-    derive_du_vent = derive_vent(derive_du_vent_vitesse, direction_du_vent, finale, init)
+    derive_du_vent = derive_vent(derive_du_vent_vitesse, direction_du_vent, finale, init, temps_h)
 
 
     # calcul_cap
