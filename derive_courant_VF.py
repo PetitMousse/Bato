@@ -2,8 +2,8 @@ import math
 
 def derive_courant(derive_du_courant_vitesse, direction_du_courant, finale, init, temps_h):
     finale_courant = [
-        finale[0] - math.sin(math.radians(direction_du_courant)) * derive_du_courant_vitesse * temps_h,
-        finale[1] - math.cos(math.radians(direction_du_courant)) * derive_du_courant_vitesse * temps_h,
+        finale[0] + math.sin(math.radians(direction_du_courant)) * derive_du_courant_vitesse * temps_h,
+        finale[1] + math.cos(math.radians(direction_du_courant)) * derive_du_courant_vitesse * temps_h,
     ]
     
     distance_trajet = math.sqrt((init[0]-finale[0]) ** 2 + (init[1]-finale[1]) ** 2)
