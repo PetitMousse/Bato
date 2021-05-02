@@ -1,3 +1,26 @@
+'''
+#// ---------------- DEBUT EN TETE -------------------------------------//
+// NOM : tableau des valeurs du courant.                                //
+// ALGO - REFERENCES :                                                  //
+//                                                                      //
+// AUTEURS : A.Bidault & T.Bonnel & Q. De la Forest                     //
+// VERSION :    1.0         P.SCHOTT              décembre 2020         // 
+//                                                                      //
+// HISTORIQUE : Aucun                                                   //
+//                                                                      //
+// ENTREES :    hauteur basse et haute mer, heure de début et de fin    //
+//                                                                      //
+// SORTIES : hauteur de l'eau                                           //
+//                                                                      //
+// MODIFIEES :                                                          //
+//                                                                      //
+// LOCALES :                                                            //
+//                                                                      //
+// FONCTIONS APPELEES :Trouver_pointB; Conversion_lat_x                 //
+//                                                                      //
+// ---------------- FIN EN TETE ----------------------------------------//
+'''
+
 def Hauteur_eau(h_m, b_m, t_debut, t_fin, t_souhaitee):
     t_heure, t_min = t_souhaitee if len(t_souhaitee) == 2 else [t_souhaitee[0], 0]
     t_debut, t_debut2 = t_debut if len(t_debut) == 2 else [t_debut[0], 0]

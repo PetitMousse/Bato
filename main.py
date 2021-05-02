@@ -1,3 +1,27 @@
+'''
+#// ---------------- DEBUT EN TETE -------------------------------------//
+// NOM : tableau des valeurs du courant.                                //
+// ALGO - REFERENCES :                                                  //
+//                                                                      //
+// AUTEURS : A.Bidault & T.Bonnel & Q. De la Forest                     //
+// VERSION :    1.0         P.SCHOTT              avril 2020.           // 
+//                                                                      //
+// HISTORIQUE : Aucun                                                   //
+//                                                                      //
+// ENTREES :    Informations sur le vent, le courant, la position       //
+//          initiale et finale, vitesse du bateau, derive compas et     //
+//          magnétique                                                  //
+//                                                                      //
+// SORTIES : cap finale a prendre pour aller a la position finale       //
+//                                                                      //
+// MODIFIEES :                                                          //
+//                                                                      //
+// LOCALES :                                                            //
+//                                                                      //
+// FONCTIONS APPELEES : derive_vent_VF , derive_courant_VF              //
+//                                                                      //
+// ---------------- FIN EN TETE ----------------------------------------//
+'''
 
 from prompt_toolkit.shortcuts import radiolist_dialog
 from prompt_toolkit.shortcuts import input_dialog
